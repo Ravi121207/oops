@@ -1,1 +1,13 @@
+public class student {
+    public static void main(String[] args) {
+        String name="Ravi";
+        String college="Coer university";
+        int age=21;
 
+        System.out.println("Name:"+name);
+        System.out.println("College:"+college);
+        System.err.println("Age:"+age);
+
+    }
+    
+}
