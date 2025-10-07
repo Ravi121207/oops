@@ -1,0 +1,16 @@
+class Example {
+    static int staticVar = 10; // shared by all objects
+    int instanceVar = 20;      // separate copy for each object
+
+    public static void main(String[] args) {
+        Example e1 = new Example();
+        Example e2 = new Example();
+
+        e1.instanceVar = 30;
+        e1.staticVar = 50; // affects all objects
+
+        System.out.println("e1 instanceVar: " + e1.instanceVar);
+        System.out.println("e2 instanceVar: " + e2.instanceVar);
+        System.out.println("e2 staticVar: " + e2.staticVar);
+    }
+}
