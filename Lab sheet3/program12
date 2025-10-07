@@ -1,0 +1,18 @@
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String n, double s) {
+        name = n; salary = s;
+    }
+
+    static void updateSalary(Employee e, double newSalary) {
+        e.salary = newSalary;
+    }
+
+    public static void main(String[] args) {
+        Employee emp = new Employee("Bob", 30000);
+        updateSalary(emp, 40000);
+        System.out.println(emp.name + " new salary: " + emp.salary);
+    }
+}
