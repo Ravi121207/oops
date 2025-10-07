@@ -1,0 +1,20 @@
+class Parent {
+    private int privateVar = 10;
+    protected int protectedVar = 20;
+    public int publicVar = 30;
+}
+
+class Child extends Parent {
+    void display() {
+        // System.out.println(privateVar);
+        System.out.println(protectedVar); 
+        System.out.println(publicVar);    
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.display();
+    }
+}
