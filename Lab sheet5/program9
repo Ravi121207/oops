@@ -1,0 +1,14 @@
+class Parent {
+    void display() { System.out.println("Parent display"); }
+}
+
+class Child extends Parent {
+    @Override void display() { System.out.println("Child display"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent p = new Child(); // superclass ref, subclass object
+        p.display(); // Child's method runs
+    }
+}
