@@ -1,0 +1,7 @@
+class Test {
+    final int x = 10;
+
+    void change() {
+        // x = 20; 
+    }
+}
