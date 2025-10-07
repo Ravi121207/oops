@@ -1,0 +1,18 @@
+class Person {
+    Person(String name) {
+        System.out.println("Person constructor: " + name);
+    }
+}
+
+class Student extends Person {
+    Student(String name, int id) {
+        super(name); // calling superclass constructor
+        System.out.println("Student constructor: ID = " + id);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student("Alice", 101);
+    }
+}
