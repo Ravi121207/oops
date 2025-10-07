@@ -1,0 +1,27 @@
+class Account {
+    private double balance;
+
+    public void deposit(double amount) { if (amount > 0) balance += amount; }
+    public void withdraw(double amount) { if (amount > 0 && balance >= amount) balance -= amount; }
+    public double getBalance() { return balance; }
+}
+
+class SavingsAccount extends Account {
+    private double interestRate;
+
+    SavingsAccount(double rate) {
+        this.interestRate = rate;
+    }
+
+    public void addInterest() {
+        double interest = getBalance() * interestRate / 100;
+        deposit(interest);
+    }
+
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount(5);
+        sa.deposit(1000);
+        sa.addInterest();
+        System.out.println("Balance with Interest: " + sa.getBalance());
+    }
+}
