@@ -1,0 +1,23 @@
+class Vehicle {
+    int speed;
+
+    void setSpeed(int s) {
+        speed = s;
+    }
+
+    void setSpeed(int s, int bonus) {
+        speed = s + bonus;
+    }
+
+    void display() {
+        System.out.println("Speed: " + speed);
+    }
+
+    public static void main(String[] args) {
+        Vehicle v = new Vehicle();
+        v.setSpeed(100);
+        v.display();
+        v.setSpeed(80, 20);
+        v.display();
+    }
+}
