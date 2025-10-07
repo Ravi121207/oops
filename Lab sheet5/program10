@@ -1,0 +1,17 @@
+class Parent {
+    void greet() { System.out.println("Hello from Parent"); }
+}
+
+class Child extends Parent {
+    @Override void greet() {
+        super.greet(); // access Parent version
+        System.out.println("Hello from Child");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.greet();
+    }
+}
