@@ -1,0 +1,8 @@
+package mypack;
+
+class Example1 {
+    int defaultVar = 10;   // default access
+    void show() {
+        System.out.println("Default var: " + defaultVar);
+    }
+}
