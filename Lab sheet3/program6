@@ -1,0 +1,10 @@
+class Vehicle {
+    void startEngine() {
+        System.out.println("Engine started...");
+    }
+
+    public static void main(String[] args) {
+        Vehicle v1 = new Vehicle();
+        v1.startEngine();
+    }
+}
