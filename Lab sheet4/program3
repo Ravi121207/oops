@@ -1,0 +1,19 @@
+class Parent {
+    protected String name = "ParentName";
+
+    protected void display() {
+        System.out.println("Hello from Parent");
+    }
+}
+
+class Child extends Parent {
+    public void show() {
+        System.out.println("Accessing protected member: " + name);
+        display();
+    }
+
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.show();
+    }
+}
