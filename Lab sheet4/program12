@@ -1,0 +1,20 @@
+class Library {
+    class Member {
+        String name;
+        int id;
+
+        Member(String n, int i) {
+            name = n; id = i;
+        }
+
+        void display() {
+            System.out.println("Member: " + name + ", ID: " + id);
+        }
+    }
+
+    public static void main(String[] args) {
+        Library lib = new Library();
+        Library.Member m = lib.new Member("Alice", 101);
+        m.display();
+    }
+}
