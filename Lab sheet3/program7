@@ -1,0 +1,18 @@
+class Vehicle {
+    int speed;
+    String color;
+
+    Vehicle(int s, String c) {
+        speed = s;
+        color = c;
+    }
+
+    void display() {
+        System.out.println("Speed: " + speed + ", Color: " + color);
+    }
+
+    public static void main(String[] args) {
+        Vehicle v = new Vehicle(120, "Red");
+        v.display();
+    }
+}
