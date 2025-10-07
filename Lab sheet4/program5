@@ -1,0 +1,17 @@
+class Config {
+    private static String appName = "MyApp";
+
+    public static String getAppName() {
+        return appName;
+    }
+
+    public static void setAppName(String name) {
+        appName = name;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Config.getAppName());
+        Config.setAppName("NewApp");
+        System.out.println(Config.getAppName());
+    }
+}
