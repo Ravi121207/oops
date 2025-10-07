@@ -1,0 +1,16 @@
+class Demo {
+    static void staticMethod() {
+        System.out.println("Static method");
+    }
+
+    void nonStaticMethod() {
+        System.out.println("Non-static method");
+        staticMethod(); // static can be called inside non-static
+    }
+
+    public static void main(String[] args) {
+        staticMethod();
+        Demo d = new Demo();
+        d.nonStaticMethod();
+    }
+}
