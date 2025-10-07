@@ -1,0 +1,13 @@
+class Book {
+    String title;
+
+    Book(String t) { title = t; }
+
+    public static void main(String[] args) {
+        Book b1 = new Book("Java");
+        Book b2 = b1; // reference copy
+        b2.title = "Python"; // change reflects in both
+        System.out.println("b1 title: " + b1.title);
+        System.out.println("b2 title: " + b2.title);
+    }
+}
