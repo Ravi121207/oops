@@ -1,0 +1,13 @@
+public class SleepDemo extends Thread {
+    public void run() {
+        try {
+            System.out.println("Before sleep...");
+            Thread.sleep(2000);
+            System.out.println("After 2 seconds sleep.");
+        } catch (Exception e) {}
+    }
+
+    public static void main(String[] args) {
+        new SleepDemo().start();
+    }
+}
