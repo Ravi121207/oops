@@ -1,0 +1,23 @@
+class DemoThread extends Thread {
+    public DemoThread(String name) {
+        super(name);
+    }
+
+    public void run() {
+        System.out.println(getName() + " Priority: " + getPriority());
+    }
+
+    public static void main(String[] args) {
+        DemoThread t1 = new DemoThread("T1");
+        DemoThread t2 = new DemoThread("T2");
+        DemoThread t3 = new DemoThread("T3");
+
+        t1.setPriority(3);
+        t2.setPriority(7);
+        t3.setPriority(10);
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
