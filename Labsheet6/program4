@@ -1,0 +1,21 @@
+package vehicles;
+
+public class Vehicle {
+    protected String name = "Generic Vehicle";
+
+    protected void display() {
+        System.out.println("Name: " + name);
+    }
+}
+
+
+package test;
+
+import vehicles.Vehicle;
+
+public class SubVehicle extends Vehicle {
+    public static void main(String[] args) {
+        SubVehicle obj = new SubVehicle();
+        obj.display();  // inherited protected
+    }
+}
