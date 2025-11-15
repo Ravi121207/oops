@@ -1,0 +1,19 @@
+import java.io.*;
+
+public class CopyFileBytes {
+    public static void main(String[] args) {
+        String source = "source.bin";
+        String dest = "dest.bin";
+        try (FileInputStream fis = new FileInputStream(source);
+             FileOutputStream fos = new FileOutputStream(dest)) {
+            byte[] buffer = new byte[4096];
+            int n;
+            while ((n = fis.read(buffer)) != -1) {
+                fos.write(buffer, 0, n);
+            }
+            System.out.println("Copy complete.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
