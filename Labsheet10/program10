@@ -1,0 +1,23 @@
+import java.io.*;
+
+public class WriteUserInputToFile {
+    public static void main(String[] args) {
+        String outFile = "user_input.txt";
+        String terminator = "STOP"; // case-sensitive termination string
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
+            System.out.println("Enter text. Type '" + terminator + "' on a line to finish.");
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.equals(terminator)) {
+                    break;
+                }
+                bw.write(line);
+                bw.newLine();
+            }
+            System.out.println("Saved to " + outFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
