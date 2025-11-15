@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class Q10 {
+    public static void main(String[] args) {
+        List<Integer> list = Collections.synchronizedList(new ArrayList<>());
+
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        synchronized (list) {
+            for (int n : list)
+                System.out.println(n);
+        }
+    }
+}
