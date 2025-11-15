@@ -1,0 +1,46 @@
+import java.io.*;
+
+public class DataStreamBinaryExample {
+    public static void main(String[] args) {
+        String imageIn = "photo.jpg";
+        String binOut = "image_blob.dat";
+
+        // Write image bytes preceded by length, and some metadata using DataOutputStream
+        try (FileInputStream fis = new FileInputStream(imageIn);
+             ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+
+            byte[] buffer = new byte[4096];
+            int n;
+            while ((n = fis.read(buffer)) != -1) {
+                baos.write(buffer, 0, n);
+            }
+            byte[] imageBytes = baos.toByteArray();
+
+            try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(binOut))) {
+                dos.writeUTF("photo.jpg");          // filename
+                dos.writeInt(imageBytes.length);    // length
+                dos.write(imageBytes);              // raw bytes
+                System.out.println("Wrote binary blob to " + binOut);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Read back with DataInputStream
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(binOut))) {
+            String name = dis.readUTF();
+            int len = dis.readInt();
+            byte[] data = new byte[len];
+            dis.readFully(data);
+            System.out.println("Read metadata: name=" + name + ", length=" + len);
+            // Optionally write back to a file to verify
+            try (FileOutputStream fos = new FileOutputStream("restored_" + name)) {
+                fos.write(data);
+            }
+            System.out.println("Restored file: restored_" + name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
