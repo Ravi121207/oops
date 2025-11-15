@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class Q6 {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(10, 4, 7, 1, 9));
+
+        Collections.sort(list, Collections.reverseOrder());
+
+        System.out.println("Sorted Descending: " + list);
+    }
+}
