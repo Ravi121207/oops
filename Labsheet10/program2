@@ -1,0 +1,13 @@
+import java.io.*;
+
+public class WriteToConsole {
+    public static void main(String[] args) {
+        try (OutputStreamWriter osw = new OutputStreamWriter(System.out)) {
+            String msg = "Hello from OutputStreamWriter!\n";
+            osw.write(msg);
+            osw.flush(); // important to actually push bytes to System.out
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
