@@ -1,0 +1,29 @@
+class DeadlockDemo {
+    public static void main(String[] args) {
+        final String res1 = "Resource1";
+        final String res2 = "Resource2";
+
+        Thread t1 = new Thread(() -> {
+            synchronized (res1) {
+                System.out.println("Thread 1 locked Res1");
+                try { Thread.sleep(100); } catch (Exception e) {}
+                synchronized (res2) {
+                    System.out.println("Thread 1 locked Res2");
+                }
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            synchronized (res2) {
+                System.out.println("Thread 2 locked Res2");
+                try { Thread.sleep(100); } catch (Exception e) {}
+                synchronized (res1) {
+                    System.out.println("Thread 2 locked Res1");
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
+    }
+}
