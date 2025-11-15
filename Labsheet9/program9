@@ -1,0 +1,50 @@
+class Data {
+    int value;
+    boolean available = false;
+
+    synchronized void produce(int v) throws Exception {
+        while (available) wait();
+        value = v;
+        System.out.println("Produced: " + value);
+        available = true;
+        notify();
+    }
+
+    synchronized int consume() throws Exception {
+        while (!available) wait();
+        System.out.println("Consumed: " + value);
+        available = false;
+        notify();
+        return value;
+    }
+}
+
+class Producer extends Thread {
+    Data d;
+    Producer(Data d) { this.d = d; }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            try { d.produce(i); } catch (Exception e) {}
+        }
+    }
+}
+
+class Consumer extends Thread {
+    Data d;
+    Consumer(Data d) { this.d = d; }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            try { d.consume(); } catch (Exception e) {}
+        }
+    }
+}
+
+public class PCMain {
+    public static void main(String[] args) {
+        Data d = new Data();
+        new Producer(d).start();
+        new Consumer(d).start();
+    }
+}
