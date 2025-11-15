@@ -1,0 +1,16 @@
+import java.io.*;
+
+public class ReadFileWithFileReader {
+    public static void main(String[] args) {
+        String path = "textfile.txt";
+        try (FileReader fr = new FileReader(path);
+             BufferedReader br = new BufferedReader(fr)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
