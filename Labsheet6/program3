@@ -1,0 +1,21 @@
+package vehicles;
+
+class ClassA {
+    String msg = "Hello from A";  // package-private
+
+    void show() {
+        System.out.println(msg);
+    }
+}
+
+
+
+package vehicles;
+
+public class ClassB {
+    public static void main(String[] args) {
+        ClassA obj = new ClassA(); // OK (same package)
+        obj.show();                // OK
+        System.out.println(obj.msg);
+    }
+}
