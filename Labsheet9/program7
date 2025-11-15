@@ -1,0 +1,29 @@
+class BankAccount {
+    private int balance = 1000;
+
+    public synchronized void withdraw(int amount) {
+        System.out.println(Thread.currentThread().getName() + " trying to withdraw...");
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdraw successful! Remaining: " + balance);
+        } else {
+            System.out.println("Insufficient funds!");
+        }
+    }
+}
+
+class User extends Thread {
+    BankAccount acc;
+
+    User(BankAccount a) { acc = a; }
+
+    public void run() {
+        acc.withdraw(700);
+    }
+
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount();
+        new User(acc).start();
+        new User(acc).start();
+    }
+}
