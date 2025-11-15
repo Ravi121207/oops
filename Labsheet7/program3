@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class Q3 {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+
+        names.add("Apple");
+        names.add("Banana");
+        names.add("Cherry");
+        names.add("Dates");
+        names.add("Grapes");
+
+        System.out.println(names);
+    }
+}
