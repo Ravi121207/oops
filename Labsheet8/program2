@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class Q2 {
+    public static void main(String[] args) {
+        NavigableSet<Integer> set = new TreeSet<>(Arrays.asList(10, 20, 30, 40, 50));
+
+        int x = 35;
+
+        System.out.println("Set: " + set);
+        System.out.println("floor(" + x + "): " + set.floor(x));
+        System.out.println("ceiling(" + x + "): " + set.ceiling(x));
+        System.out.println("lower(" + x + "): " + set.lower(x));
+        System.out.println("higher(" + x + "): " + set.higher(x));
+    }
+}
