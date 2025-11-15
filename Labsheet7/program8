@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class Q8 {
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>(Arrays.asList(10, 20, 30, 40));
+
+        ListIterator<Integer> it = list.listIterator(list.size());
+
+        System.out.print("Reversed: ");
+        while (it.hasPrevious()) {
+            System.out.print(it.previous() + " ");
+        }
+    }
+}
