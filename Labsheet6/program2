@@ -1,0 +1,18 @@
+package test;
+
+import vehicles.Car;
+import vehicles.Bike;
+
+public class TestVehicle {
+    public static void main(String[] args) {
+        Car c = new Car();
+        Bike b = new Bike();
+
+        System.out.println(c.brand); // public
+        c.showBrand();               // public
+
+        b.ride();                    // public
+
+        // Cannot access protected/package-private/private members here
+    }
+}
